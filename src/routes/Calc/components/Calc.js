@@ -39,6 +39,9 @@ export const Calc = (props) => (
         value={props.sampleSize}
         onChange={props.editSampleSize} />
     </FormGroup>
+    <button onClick={props.calculateSampleSize}>Calculate Sample Size</button>
+    <button onClick={props.calculatePower}>Calculate Power</button>
+
   </div>
 )
 
@@ -55,7 +58,9 @@ Calc.propTypes = {
   editSamplingRatio: React.PropTypes.func.isRequired,
   editPower: React.PropTypes.func.isRequired,
   editAlpha: React.PropTypes.func.isRequired,
-  editSampleSize: React.PropTypes.func.isRequired
+  editSampleSize: React.PropTypes.func.isRequired,
+  calculatePower: React.PropTypes.func.isRequired,
+  calculateSampleSize: React.PropTypes.func.isRequired
 }
 
 export default Calc

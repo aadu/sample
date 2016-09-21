@@ -1,3 +1,5 @@
+import { jStat } from 'jStat'
+
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -40,12 +42,32 @@ export const actions = {
 // Action Handlers
 // ------------------------------------
 
+function qnorm (p, mean = 0.0, std = 1.0) {
+  return jStat.normal.inv(p, mean, std)
+}
+
+function pnorm (p, mean = 0.0, std = 1.0) {
+  return jStat.normal.cdf(p, mean, std)
+}
+
 function computeSampleSize ({ groupAProportion, groupBProportion, samplingRatio, power, alpha, tails }) {
-  return 123
+  let pA = groupAProportion
+  let pB = groupBProportion
+  let kappa = samplingRatio
+  let beta = 1 - power
+  let nB = (pA * (1 - pA) / kappa + pB * (1 - pB)) * (
+      Math.pow((qnorm(1 - alpha / tails) + qnorm(1 - beta)) / (pA - pB), 2))
+  return Math.ceil(nB)
 }
 
 function computePower ({ groupAProportion, groupBProportion, samplingRatio, sampleSize, alpha, tails }) {
-  return 0.80
+  let pA = groupAProportion
+  let pB = groupBProportion
+  let kappa = samplingRatio
+  let nB = sampleSize
+  let z = (pA - pB) / Math.sqrt(pA * (1 - pA) / sampleSize / kappa + pB * (1 - pB) / nB)
+  let power = pnorm(z - qnorm(1 - alpha / tails)) + pnorm(-z - qnorm(1 - alpha / tails))
+  return power
 }
 
 const ACTION_HANDLERS = {
