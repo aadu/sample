@@ -11,31 +11,37 @@ export const Calc = (props) => (
   <div style={{ margin: '0 auto' }} >
     <FormGroup label="Group A Proportion" id="group-a-input">
       <input type="number" id="group-a-input"
+        max="1.0" min="0.0" step="0.02"
         value={props.groupAProportion}
         onChange={props.editGroupAProportion} />
     </FormGroup>
     <FormGroup label="Group B Proportion" id="group-b-input">
       <input type="number" id="group-b-input"
+        max="1.0" min="0.0" step="0.02"
         value={props.groupBProportion}
         onChange={props.editGroupBProportion} />
     </FormGroup>
     <FormGroup label="Sampling Ratio" id="sampling-ratio-input">
       <input type="number" id="sampling-ratio-input"
+        max="1.0" min="0.0" step="0.05"
         value={props.samplingRatio}
         onChange={props.editSamplingRatio} />
     </FormGroup>
     <FormGroup label="Alpha" id="alpha-input">
       <input type="number" id="alpha-input"
+        max="1.0" min="0.0" step="0.01"
         value={props.alpha}
         onChange={props.editAlpha} />
     </FormGroup>
     <FormGroup label="Power" id="power-input">
       <input type="number" id="power-input"
+        max="1.0" min="0.0" step="0.05"
         value={props.power}
         onChange={props.editPower} />
     </FormGroup>
     <FormGroup label="Sample Size" id="sample-size-input">
       <input type="number" id="sample-size-input"
+        min="5" step="10"
         value={props.sampleSize}
         onChange={props.editSampleSize} />
     </FormGroup>
