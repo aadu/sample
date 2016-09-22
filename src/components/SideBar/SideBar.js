@@ -8,7 +8,7 @@ import Menu from 'grommet/components/Menu'
 import Anchor from 'grommet/components/Anchor'
 
 export const SideBar = () => (
-  <GrommetSidebar size="medium" colorIndex="neutral-1" separator="right" fixed>
+  <GrommetSidebar size="small" colorIndex="neutral-1" separator="right" fixed>
     <Header pad={{ 'horizontal': 'medium' }}>
       Sample Size Calculator
     </Header>

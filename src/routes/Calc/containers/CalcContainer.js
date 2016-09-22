@@ -14,7 +14,8 @@ const mapStateToProps = (state) => ({
   samplingRatio : state.calc.samplingRatio,
   power : state.calc.power,
   alpha : state.calc.alpha,
-  sampleSize : state.calc.sampleSize
+  sampleSize : state.calc.sampleSize,
+  tails : state.calc.tails
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:

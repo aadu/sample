@@ -25,6 +25,8 @@ export const editTails = event => ({ type: EDIT_TAILS, number: parseFloat(event.
 export const editSampleSize = event => ({ type: EDIT_SAMPLE_SIZE, number: parseFloat(event.target.value) })
 export const calculateSampleSize = () => ({ type: CALCULATE_SAMPLE_SIZE })
 export const calculatePower = () => ({ type: CALCULATE_POWER })
+export const selectOneTail = () => ({ type: EDIT_TAILS, tails: 1 })
+export const selectTwoTail = () => ({ type: EDIT_TAILS, tails: 2 })
 
 export const actions = {
   editGroupAProportion,
@@ -35,7 +37,9 @@ export const actions = {
   editTails,
   editSampleSize,
   calculateSampleSize,
-  calculatePower
+  calculatePower,
+  selectOneTail,
+  selectTwoTail
 }
 
 // ------------------------------------
@@ -78,6 +82,7 @@ const ACTION_HANDLERS = {
   [EDIT_POWER]: (state, action) => Object.assign({}, state, { power: action.number }),
   [EDIT_TAILS]: (state, action) => Object.assign({}, state, { tails: action.number }),
   [EDIT_SAMPLE_SIZE]: (state, action) => Object.assign({}, state, { sampleSize: action.number }),
+  [EDIT_TAILS]: (state, action) => Object.assign({}, state, { tails: action.tails }),
   [CALCULATE_SAMPLE_SIZE]: (state, action) => Object.assign({}, state, { sampleSize: computeSampleSize(state) }),
   [CALCULATE_POWER]: (state, action) => Object.assign({}, state, { power: computePower(state) })
 }

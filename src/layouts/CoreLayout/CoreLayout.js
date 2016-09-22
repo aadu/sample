@@ -16,9 +16,7 @@ export const CoreLayout = ({ children }) => (
   <App centered={false}>
     <Split flex="right">
       <SideBar />
-      <Article>
-        { children }
-      </Article>
+      { children }
     </Split>
   </App>
 )
